@@ -18,13 +18,11 @@ const User = (props) => {
                 <td>{props.completedMeetings}</td>
                 <td>{props.rate} /5</td>
                 <td>
-                    <button>
-                        <BookMark
+                    <BookMark
                             status = {props.bookmark}
                             {...props}
                             onTongle = {props.onTongle}
                         />
-                    </button>
                 </td>
                 <td><button 
                     className = "btn btn-danger m-2"

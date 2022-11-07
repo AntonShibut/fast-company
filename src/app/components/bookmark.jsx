@@ -1,17 +1,17 @@
 import React from "react";
 
-const BookMark = ({status,onTongle}) => {
-    console.log(status)
+const BookMark = (props) => {
+    
 
     const handleChangeMarkClass = () => {
-        return (status === false) ? "bi bi-bookmark" :"bi bi-bookmark-heart-fill"
+        return (props.status === false) ? "bi bi-bookmark" :"bi bi-bookmark-heart-fill"
     }
     
     return  (
-        <i  
-            className = {handleChangeMarkClass()}
-            onClick = {() => onTongle(props.id)}
-        />
+        <button onClick = {() => props.onTongle(props._id)}>
+            <i className = {handleChangeMarkClass()}/>
+        </button>    
+            
     )
 }
 
