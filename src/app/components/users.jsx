@@ -26,8 +26,7 @@ const Users = ({ users, onDelete, onTongle }) => {
 	}
 
 	const filteredUsers = selectedProf
-		? (console.log(selectedProf),
-		  users.filter((user) => user.profession._id === selectedProf._id))
+		? users.filter((user) => user.profession._id === selectedProf._id)
 		: users
 
 	const count = filteredUsers.length
