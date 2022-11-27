@@ -11,7 +11,9 @@ module.exports = {
 	},
 	plugins: ['react'],
 	rules: {
-		indent: ['error', 'tab'],
+		'react/prop-types': 0,
+		indent: [2, 'tab'],
+		'no-tabs': 0,
 		semi: ['error', 'never'],
 		'space-before-function-paren': ['error', 'never'],
 		quotes: ['error', 'single']

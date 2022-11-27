@@ -3,7 +3,7 @@ import React from 'react'
 const Qualitie = ({ color, name, _id }) => {
 	const getColorForQualitiesUser = (color) => {
 		let classes = 'badge m-2 bg-'
-		classes += color ? color : 'bg-primary'
+		classes += color || 'bg-primary'
 		return classes
 	}
 
