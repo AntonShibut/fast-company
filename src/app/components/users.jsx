@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { paginate } from '../utils/paginate'
 import Pagination from './pagination'
-import User from './user'
+import UserTable from './usersTable'
 import api from '../api'
 import GroupList from './groupList'
 import SearchStatus from './searchStatus'
 
-const Users = ({ users, onDelete, onTongle }) => {
+const Users = ({ users, ...rest }) => {
 	const pageSize = 4
 	const [currentPage, setCurrentPage] = useState(1)
 	const [professions, setProfessions] = useState()
@@ -21,12 +21,16 @@ const Users = ({ users, onDelete, onTongle }) => {
 		setCurrentPage(pageIndex)
 	}
 
+	const handleSort = (item) => {
+		console.log(item)
+	}
+
 	const handleProfessionSelect = (item) => {
 		setSelectedProf(item)
 	}
 
 	const filteredUsers = selectedProf
-		? users.filter((user) => user.profession._id === selectedProf._id)
+		? (users.filter((user) => user.profession._id === selectedProf._id))
 		: users
 
 	const count = filteredUsers.length
@@ -58,29 +62,11 @@ const Users = ({ users, onDelete, onTongle }) => {
 					<SearchStatus length={count} />
 				</h2>
 				{count > 0 && (
-					<table className="table">
-						<thead>
-							<tr>
-								<th> Имя</th>
-								<th> Качества</th>
-								<th> Профессия</th>
-								<th> Встретился, раз</th>
-								<th> Оценка</th>
-								<th> Избранное</th>
-								<th> </th>
-							</tr>
-						</thead>
-						<tbody>
-							{userCrop.map((user) => (
-								<User
-									key={user._id}
-									{...user}
-									onDelete={onDelete}
-									onTongle={onTongle}
-								/>
-							))}
-						</tbody>
-					</table>
+					<UserTable
+						users = {userCrop}
+						onSort = {handleSort}
+						{...rest}
+					/>
 				)}
 				<div className="d-flex justify-content-center">
 					<Pagination

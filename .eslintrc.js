@@ -12,7 +12,7 @@ module.exports = {
 	plugins: ['react'],
 	rules: {
 		'react/prop-types': 0,
-		indent: [2, 'tab'],
+		indent: ['error', 'tab'],
 		'no-tabs': 0,
 		semi: ['error', 'never'],
 		'space-before-function-paren': ['error', 'never'],

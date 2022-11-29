@@ -8,9 +8,11 @@ const GroupList = ({
 	onItemSelect,
 	selectedItem
 }) => {
+	const groupListen = Array.isArray(items) ? items : Object.values(items)
+
 	return (
 		<ul className="list-group">
-			{items.map((item) => (
+			{groupListen.map((item) => (
 				<li
 					key={item[valeyProperty]}
 					className={
